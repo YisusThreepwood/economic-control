@@ -29,6 +29,7 @@ dependencies {
     implementation "javax.annotation:javax.annotation-api"
     implementation "io.micronaut:micronaut-http-server-netty"
     implementation "io.micronaut:micronaut-http-client"
+    implementation("au.com.dius:pact-jvm-provider-junit5:$pactVersion")
     kapt platform("io.micronaut:micronaut-bom:$micronautVersion")
     kapt "io.micronaut:micronaut-inject-java"
     kapt "io.micronaut:micronaut-validation"
@@ -38,8 +39,9 @@ dependencies {
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
     testImplementation "org.junit.jupiter:junit-jupiter-api"
     testImplementation "org.jetbrains.spek:spek-api:1.1.5"
+    testImplementation "io.micronaut.test:micronaut-test-junit5:1.1.1"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
-    testRuntimeOnly "org.jetbrains.spek:spek-junit-platform-engine:1.1.5"
+    testRuntimeOnly "org.jetbrains.spek:spek-junit-platform-engine:1.1.1"
 }
 
 test.classpath += configurations.developmentOnly
@@ -48,6 +50,7 @@ mainClassName = "economic.control.Application"
 
 test {
     useJUnitPlatform()
+    systemProperties['micronaut.server.port'] = 8090
 }
 
 allOpen {
