@@ -1,0 +1,28 @@
+dependencies {
+    kaptTest platform("io.micronaut:micronaut-bom:$micronautVersion")
+    kaptTest "io.micronaut:micronaut-inject-java"
+
+    testImplementation(
+        "org.junit.jupiter:junit-jupiter-api",
+        "org.jetbrains.spek:spek-api:1.1.5",
+        "io.micronaut.test:micronaut-test-junit5:1.1.1",
+    )
+
+    testRuntimeOnly(
+        "org.junit.jupiter:junit-jupiter-engine",
+        "org.jetbrains.spek:spek-junit-platform-engine:1.1.1",
+    )
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = '1.8'
+        javaParameters = true
+    }
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties['micronaut.server.port'] = 8090
+    systemProperties['data.club.balance'] = '/src/test/fixtures/clubs_balance.csv'
+}
