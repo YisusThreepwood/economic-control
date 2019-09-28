@@ -12,7 +12,7 @@ constructor(private val balanceMapper: BalanceMapper): Contracts.BalanceGateway
 {
     override fun getBalanceFromClub(clubId: String): BalanceEntity {
         val reader = BufferedReader(FileReader(
-                Paths.get("").toAbsolutePath().toString() + "/data/clubs_balance.csv"
+                Paths.get("").toAbsolutePath().toString() + System.getProperty("data.club.balance")
         ))
         val line = findLineByClubId(reader.lines().toArray(), clubId)
 

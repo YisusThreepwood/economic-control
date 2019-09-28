@@ -8,8 +8,8 @@ import javax.json.JsonObject
 class BalanceTransformer {
     fun transform(balance: BalanceEntity): JsonObject {
         return Json.createObjectBuilder()
-                .add("club_id", balance.clubId)
-                .add("balance", balance.balance)
-                .build()
+            .add("club_id", balance.clubId)
+            .add("allowed_amount", balance.balance)
+            .build()
     }
 }
