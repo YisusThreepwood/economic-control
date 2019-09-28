@@ -3,7 +3,6 @@ package economic.control
 import au.com.dius.pact.provider.junit.Provider
 import au.com.dius.pact.provider.junit.State
 import au.com.dius.pact.provider.junit.loader.PactFolder
-import au.com.dius.pact.provider.junit.target.TestTarget
 import au.com.dius.pact.provider.junit5.HttpTestTarget
 import au.com.dius.pact.provider.junit5.PactVerificationContext
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider
@@ -17,9 +16,6 @@ import java.net.URL
 @Provider("EconomicControl")
 @PactFolder("pacts")
 class PactsVerificationTest {
-
-    /*@TestTarget
-    val target: HttpTestTarget = HttpTestTarget("localhost", 8090)*/
 
     @TestTemplate
     @ExtendWith(PactVerificationInvocationContextProvider::class)

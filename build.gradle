@@ -6,8 +6,6 @@ plugins {
     id "application"
 }
 
-
-
 version "0.1"
 group "economic.control"
 
@@ -18,7 +16,7 @@ repositories {
 
 configurations {
     // for dependencies that are needed for development only
-    developmentOnly 
+    developmentOnly
 }
 
 dependencies {
@@ -48,9 +46,14 @@ test.classpath += configurations.developmentOnly
 
 mainClassName = "economic.control.Application"
 
+run {
+    systemProperties['data.club.balance'] = '/data/clubs_balance.csv'
+}
+
 test {
     useJUnitPlatform()
     systemProperties['micronaut.server.port'] = 8090
+    systemProperties['data.club.balance'] = '/src/test/fixtures/clubs_balance.csv'
 }
 
 allOpen {
