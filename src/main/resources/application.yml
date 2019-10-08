@@ -1,3 +1,6 @@
 micronaut:
   application:
     name: economic-control
+
+data:
+  relativePath: data
